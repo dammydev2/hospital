@@ -22,15 +22,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Database Name</label>
-                            <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter database name e.g. hospital">
+                            <input type="text" name="database" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter database name e.g. hospital">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Database Username</label>
-                            <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" value="root">
+                            <input type="text" name="username" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" value="root">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Database Password</label>
-                            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter database password">
+                            <input type="password"  name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter database password">
                         </div>
                         <a href="#" style="float: left;" class="former btn btn-danger">&lt;&lt;Previous</a>
                         <button type="submit" style="float: right;" class="next-btn btn btn-primary">Submit</button>

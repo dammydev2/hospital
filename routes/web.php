@@ -24,6 +24,7 @@ Route::get('/index', function () {
 Auth::routes();
 
 Route::get('/start', 'StartController@firstPage');
+Route::post('/database_form', 'StartController@database_form');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
