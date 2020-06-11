@@ -17,16 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('index');
-});
 
 Auth::routes();
 
+Route::get('/index', 'StartController@index');
 Route::get('/start', 'StartController@firstPage');
 Route::post('/database_form', 'StartController@database_form');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/patient', 'PatientController@patient')->name('patient');
 
 
 Auth::routes(['verify' => true]);

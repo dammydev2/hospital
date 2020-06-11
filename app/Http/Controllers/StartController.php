@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 use Artisan;
+use Schema;
 
 use Illuminate\Http\Request;
 
 class StartController extends Controller
 {
+
+    public function index()
+    {
+        if(\Schema::hasTable('users')){
+           return redirect('login');
+        }
+        return view('index');
+    }
+
     public function database_form(Request $request)
     {
         $old = '';
