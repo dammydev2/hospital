@@ -26,6 +26,7 @@ Route::post('/database_form', 'StartController@database_form');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/patient', 'PatientController@patient')->name('patient');
+Route::post('patient/addPatient', 'PatientController@addPatient')->name('patient/addpatient');
 
 
 Auth::routes(['verify' => true]);
