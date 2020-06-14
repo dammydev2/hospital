@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Services\PatientService;
 use Illuminate\Http\Request;
+use Session;
 
 class PatientController extends Controller
 {
@@ -26,13 +27,14 @@ class PatientController extends Controller
         return view('patient.addPatient');
     }
 
-    public function FunctionName(Request $request)
+    public function enterPatient(Request $request)
     {
         $request->validate([
             'first_name' => ['required','string'],
             'middle_name' => ['required','string'],
             'surname' => ['required','string'],
-            'patient_number' => ['required','string'],
+            'patient_number' => ['required','string', 'unique:patients'],
+            'address' => ['required','string'],
             'gender' => ['required','string'],
             'telephone' => ['required','string', 'min:11'],
             'telephone' => ['required','string'],
@@ -50,6 +52,9 @@ class PatientController extends Controller
             'kin_address' => ['required','string'],
             'kin_phone' => ['required','string'],
         ]);
+        $this->patientService->enterPatientDetails($request->all());
+        Session::flash('success', 'Patient Added successfully');
+        return redirect('patient');
     }
 
 }

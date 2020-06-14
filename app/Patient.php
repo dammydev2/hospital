@@ -15,7 +15,7 @@ class Patient extends Model
         'address',
         'email',
         'telephone',
-        'domicle',
+        'domicile',
         'nationality',
         'occupation',
         'dob',

@@ -26,7 +26,10 @@ Route::post('/database_form', 'StartController@database_form');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/patient', 'PatientController@patient')->name('patient');
-Route::post('patient/addPatient', 'PatientController@addPatient')->name('patient/addpatient');
+Route::get('patient/addPatient', 'PatientController@addPatient')->name('patient/addpatient');
+Route::get('patient/addCare', 'PatientController@addCare')->name('patient/addCare');
+Route::post('patient/enterPatient', 'PatientController@enterPatient')->name('patient/enterPatient');
+
 
 
 Auth::routes(['verify' => true]);
