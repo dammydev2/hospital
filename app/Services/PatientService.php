@@ -46,4 +46,9 @@ class PatientService
             'kin_phone' => $credentials['kin_phone'],
         ]);
     }
+
+    public function getAllPatient()
+    {
+        return $this->patient->orderBy('patient_number', 'desc')->get();
+    }
 }

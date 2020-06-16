@@ -57,4 +57,10 @@ class PatientController extends Controller
         return redirect('patient');
     }
 
+    public function addCare()
+    {
+        $patient = $this->patientService->getAllPatient();
+        return view('patient.addcare', compact('patient'));
+    }
+
 }

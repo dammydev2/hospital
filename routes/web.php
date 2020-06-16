@@ -29,6 +29,7 @@ Route::get('/patient', 'PatientController@patient')->name('patient');
 Route::get('patient/addPatient', 'PatientController@addPatient')->name('patient/addpatient');
 Route::get('patient/addCare', 'PatientController@addCare')->name('patient/addCare');
 Route::post('patient/enterPatient', 'PatientController@enterPatient')->name('patient/enterPatient');
+Route::post('patient/enterCare', 'PatientController@enterCare')->name('patient/enterCare');
 
 
 
