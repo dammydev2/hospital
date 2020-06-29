@@ -4,14 +4,17 @@ namespace App\Services;
 
 use App\User;
 use App\Patient;
+use App\NurseCare;
+use Session;
 
 class PatientService
 {
-    protected $user, $patient;
-    public function __construct(User $user, Patient $patient)
+    protected $user, $patient, $nurseCare;
+    public function __construct(User $user, Patient $patient, NurseCare $nurseCare)
     {
         $this->user = $user;
         $this->patient = $patient;
+        $this->nurseCare = $nurseCare;
     }
 
     public function allPatient()
@@ -50,5 +53,37 @@ class PatientService
     public function getAllPatient()
     {
         return $this->patient->orderBy('patient_number', 'desc')->get();
+    }
+
+    public function getLastRec()
+    {
+        return $this->nurseCare->orderBy('id', 'desc')->get('rec')->first();
+    }
+
+    public function getPatientInfo($patient_num)
+    {
+        return $this->patient->where('patient_number', $patient_num)->first();
+    }
+
+    public function enterNurseInput(array $credentials)
+    {
+        return $this->nurseCare->create([
+            'patient_number' => Session::get('patient_num'),
+            'rec' => Session::get('rec'),
+            'patient_name' => $credentials['patient_name'],
+            'time' => $credentials['time'],
+            'temp' => $credentials['temp'],
+            'palse' => $credentials['palse'],
+            'weight' => $credentials['weight'],
+            'height' => $credentials['height'],
+            'BMI' => $credentials['BMI'],
+            'SPO2' => $credentials['SPO2'],
+            'autenticator' => \Auth::User()->id,
+        ]);
+    }
+
+    public function checkTag(array $credentials)
+    {
+        return $this->nurseCare->where('rec', $credentials['record_number'])->first();
     }
 }

@@ -16,6 +16,7 @@ class CreateNurseCaresTable extends Migration
         Schema::create('nurse_cares', function (Blueprint $table) {
             $table->id();
             $table->string('patient_number');
+            $table->string('patient_name');
             $table->string('rec');
             $table->string('time');
             $table->string('temp');
@@ -24,6 +25,7 @@ class CreateNurseCaresTable extends Migration
             $table->string('height');
             $table->string('BMI');
             $table->string('SPO2');
+            $table->string('autenticator');
             $table->timestamps();
         });
     }
